@@ -12,6 +12,7 @@ public class TypingResult {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+    @OneToOne
     private Text text;
     private String userHash;
     @ElementCollection

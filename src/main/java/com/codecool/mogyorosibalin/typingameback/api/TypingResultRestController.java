@@ -21,6 +21,7 @@ public class TypingResultRestController {
 
     @Autowired
     private TypingResultRepository typingResultRepository;
+
     @Autowired
     private TextRepository textRepository;
 
