@@ -12,8 +12,8 @@ public class Casting {
 
     public List<CharFeedback> castJsonArrayToCharFeedbackList(JSONArray from) {
         List<CharFeedback> to = new ArrayList<>();
-        for (int i = 0; i < from.size(); i++) {
-            to.add(CharFeedback.fromInteger(Math.toIntExact((long)from.get(i))));
+        for (Object item : from) {
+            to.add(CharFeedback.getCharFeedback((String) item));
         }
         return to;
     }

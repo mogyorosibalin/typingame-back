@@ -1,6 +1,5 @@
 package com.codecool.mogyorosibalin.typingameback.api;
 
-import com.codecool.mogyorosibalin.typingameback.custom_enum.CharFeedback;
 import com.codecool.mogyorosibalin.typingameback.model.TypingResult;
 import com.codecool.mogyorosibalin.typingameback.repository.TextRepository;
 import com.codecool.mogyorosibalin.typingameback.repository.TypingResultRepository;
@@ -29,7 +28,7 @@ public class TypingResultRestController {
     private Casting casting;
 
     @PostMapping("/typing-results/save")
-    public String saveTypingResult(@RequestBody String body) throws ParseException {
+    public List<TypingResult> saveTypingResult(@RequestBody String body) throws ParseException {
         JSONParser parser = new JSONParser();
         JSONObject request = (JSONObject) parser.parse(body);
         typingResultRepository.save(new TypingResult(
@@ -39,7 +38,7 @@ public class TypingResultRestController {
                 Math.round((long) request.get("time") / 1000),
                 new Timestamp(System.currentTimeMillis())
         ));
-        return "";
+        return typingResultRepository.findByUserHash((String) request.get("userHash"));
     }
 
     @GetMapping("/typing-results/{userHash}")

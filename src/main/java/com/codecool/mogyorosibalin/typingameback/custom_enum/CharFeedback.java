@@ -1,18 +1,32 @@
 package com.codecool.mogyorosibalin.typingameback.custom_enum;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public enum CharFeedback {
 
-    CORRECT(1),
-    WRONG(2),
-    UNPRODUCTIVE(3);
+    CORRECT("CORRECT"),
+    WRONG("WRONG"),
+    UNPRODUCTIVE("UNPRODUCTIVE");
 
-    private int value;
+    private String charFeedback;
 
-    private static CharFeedback[] allValues = values();
-    public static CharFeedback fromInteger(int i) { return allValues[i]; }
+    private static final Map<String, CharFeedback> lookup = new HashMap<>();
+    static {
+        for(CharFeedback charFeedback : CharFeedback.values()) {
+            lookup.put(charFeedback.getCharFeedback(), charFeedback);
+        }
+    }
+    public static CharFeedback getCharFeedback(String charFeedback) {
+        return lookup.get(charFeedback);
+    }
 
-    CharFeedback(int value) {
-        this.value = value;
+    CharFeedback(String charFeedback) {
+        this.charFeedback = charFeedback;
+    }
+
+    public String getCharFeedback() {
+        return this.charFeedback;
     }
 
 }
