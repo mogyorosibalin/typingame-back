@@ -1,5 +1,6 @@
 package com.codecool.mogyorosibalin.typingameback.repository;
 
+import com.codecool.mogyorosibalin.typingameback.model.Product;
 import com.codecool.mogyorosibalin.typingameback.model.Text;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
@@ -18,5 +19,7 @@ public interface TextRepository extends JpaRepository<Text, Long> {
         Random rand = new Random();
         return texts.get(rand.nextInt(texts.size()));
     }
+
+    List<Text> findByProduct(Product product);
 
 }
