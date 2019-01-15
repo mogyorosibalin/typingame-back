@@ -22,7 +22,7 @@ public class Init {
     @Autowired
     private TextRepository textRepository;
 
-    @Bean
+    /*@Bean
     @Order(1)
     public CommandLineRunner initDb() {
         return args -> {
@@ -30,7 +30,7 @@ public class Init {
             initProductRepository();
             initTextRepository();
         };
-    }
+    }*/
 
     private void initProductTypeRepository() {
         productTypeRepository.save(new ProductType("Book"));
@@ -47,6 +47,13 @@ public class Init {
         textRepository.save(new Text(productRepository.findByName("Rich Dad Poor Dad"), "Instead, I recommend to young people to seek work for what they will learn, more than what they will earn. Look down the road at what skills they want to acquire before choosing a specific profession and before getting trapped in the Rat Race."));
         textRepository.save(new Text(productRepository.findByName("The Power of Habit"), "So what, exactly, did Hopkins do? He created a craving. And that craving, it turns out, is what makes cues and rewards work. That craving is what powers the habit loop."));
         textRepository.save(new Text(productRepository.findByName("The Power of Habit"), "That's the rule: If you use the same cue, and provide the same reward, you can shift the routine and change the habit. Almost any behavior can be transformed if the cue and reward stay the same."));
+        textRepository.save(new Text(productRepository.findByName("The Power of Habit"), "Short text."));
+        textRepository.save(new Text(productRepository.findByName("The Power of Habit"), "For testing."));
+        textRepository.save(new Text(productRepository.findByName("The Power of Habit"), "To increase change."));
+        textRepository.save(new Text(productRepository.findByName("The Power of Habit"), "Some more."));
+        textRepository.save(new Text(productRepository.findByName("The Power of Habit"), "Please work."));
+        textRepository.save(new Text(productRepository.findByName("The Power of Habit"), "Naaaaah."));
+        textRepository.save(new Text(productRepository.findByName("The Power of Habit"), "Come on now!"));
     }
 
 }

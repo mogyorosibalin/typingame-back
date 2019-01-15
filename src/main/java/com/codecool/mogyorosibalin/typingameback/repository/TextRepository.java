@@ -20,6 +20,6 @@ public interface TextRepository extends JpaRepository<Text, Long> {
         return texts.get(rand.nextInt(texts.size()));
     }
 
-    List<Text> findByProduct(Product product);
+    List<Text> findByProductOrderById(Product product);
 
 }
