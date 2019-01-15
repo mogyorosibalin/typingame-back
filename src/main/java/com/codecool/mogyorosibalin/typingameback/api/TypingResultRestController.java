@@ -35,7 +35,7 @@ public class TypingResultRestController {
                 textRepository.findById((long) request.get("textId")),
                 (String) request.get("userHash"),
                 casting.castJsonArrayToCharFeedbackList((JSONArray) request.get("chars")),
-                Math.round((long) request.get("time") / 1000),
+                (long) request.get("time"),
                 new Timestamp(System.currentTimeMillis())
         ));
         return typingResultRepository.findByUserHash((String) request.get("userHash"));
