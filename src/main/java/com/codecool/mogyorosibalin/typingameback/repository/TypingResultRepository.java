@@ -11,4 +11,6 @@ public interface TypingResultRepository extends JpaRepository<TypingResult, Long
 
     List<TypingResult> findByUserHash(String userHash);
 
+    List<TypingResult> findByTextId(long id);
+
 }
