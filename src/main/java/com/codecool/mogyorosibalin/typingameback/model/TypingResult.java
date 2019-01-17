@@ -19,15 +19,17 @@ public class TypingResult {
     private List<CharFeedback> chars;
     private long timeMiliSec;
     private Timestamp finishedTime;
+    private long points;
 
     public TypingResult() { }
 
-    public TypingResult(Text text, String userHash, List<CharFeedback> chars, long timeMiliSec, Timestamp finishedTime) {
+    public TypingResult(Text text, String userHash, List<CharFeedback> chars, long timeMiliSec, Timestamp finishedTime, long points) {
         this.text = text;
         this.userHash = userHash;
         this.chars = chars;
         this.timeMiliSec = timeMiliSec;
         this.finishedTime = finishedTime;
+        this.points = points;
     }
 
     public long getId() {
@@ -76,6 +78,14 @@ public class TypingResult {
 
     public void setFinishedTime(Timestamp finishedTime) {
         this.finishedTime = finishedTime;
+    }
+
+    public long getPoints() {
+        return points;
+    }
+
+    public void setPoints(long points) {
+        this.points = points;
     }
 
 }

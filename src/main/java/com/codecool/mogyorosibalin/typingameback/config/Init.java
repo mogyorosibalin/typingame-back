@@ -22,7 +22,7 @@ public class Init {
     @Autowired
     private TextRepository textRepository;
 
-    /*@Bean
+    @Bean
     @Order(1)
     public CommandLineRunner initDb() {
         return args -> {
@@ -30,7 +30,7 @@ public class Init {
             initProductRepository();
             initTextRepository();
         };
-    }*/
+    }
 
     private void initProductTypeRepository() {
         productTypeRepository.save(new ProductType("Book"));

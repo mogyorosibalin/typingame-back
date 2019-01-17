@@ -36,14 +36,15 @@ public class TypingResultRestController {
                 (String) request.get("userHash"),
                 casting.castJsonArrayToCharFeedbackList((JSONArray) request.get("chars")),
                 (long) request.get("time"),
-                new Timestamp(System.currentTimeMillis())
+                new Timestamp(System.currentTimeMillis()),
+                (long) request.get("points")
         ));
-        return typingResultRepository.findByUserHash((String) request.get("userHash"));
+        return typingResultRepository.findByUserHashOrderByFinishedTimeDesc((String) request.get("userHash"));
     }
 
     @GetMapping("/typing-results/{userHash}")
     public List<TypingResult> getTypingResults(@PathVariable("userHash") String userHash) {
-        return typingResultRepository.findByUserHash(userHash);
+        return typingResultRepository.findByUserHashOrderByFinishedTimeDesc(userHash);
     }
 
 }
